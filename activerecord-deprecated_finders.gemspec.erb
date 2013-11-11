@@ -17,5 +17,12 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'minitest',     '>= 3'
   gem.add_development_dependency 'activerecord', '>= 4.0.0.beta', '< 5'
-  gem.add_development_dependency 'sqlite3',      '~> 1.3'
+  
+  
+  case RUBY_PLATFORM
+  when 'java'
+    gem.add_development_dependency 'activerecord-jdbcsqlite3-adapter'
+  else
+    gem.add_development_dependency 'sqlite3'
+  end
 end
